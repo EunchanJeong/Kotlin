@@ -8,8 +8,7 @@ fun main() {
     maxBy2(1, 2)
     checkNum(50)
     forAndWhile()
-
-
+    nullcheck()
 }
 
 // 1. 함수
@@ -147,9 +146,30 @@ fun forAndWhile() {
 fun nullcheck() {
     // NPE : Null Pointer Exception
 
-    var name = "John"
+    var name = "john"
 
-    var nllName : String? = null
+    var nullName : String? = null
 
+    var nameInUpperCase = name.toUpperCase()
 
+    var nullNameInUpperCase = nullName?.toUpperCase()
+
+    // ?:
+    val lastName : String? = null
+    val fullName = name + " " + (lastName?: "No lastName")
+
+    println("${fullName}")
+}
+
+fun ignoreNulls(str : String?) {
+
+    // !!
+    val mNotNull : String = str!!
+    val upper = mNotNull.toUpperCase()
+
+    val email : String? = "john123@hahae.com"
+
+    email?.let {
+        println("my email is ${email}")
+    }
 }
